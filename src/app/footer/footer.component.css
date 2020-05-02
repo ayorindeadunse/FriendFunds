@@ -1,0 +1,22 @@
+a
+{
+  text-decoration: none;
+  color: white;
+}
+
+.alignment
+{
+  background-color: darkslateblue;
+  width:100%;
+  text-align:center;
+  color:white;
+  font-size:80%;
+}
+
+.toolbarwidth
+{
+  background-color: darkslateblue;
+  width:100%;
+  color:white;
+}
+

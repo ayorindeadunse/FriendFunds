@@ -1,0 +1,16 @@
+main {
+  width: 50%;
+  margin: 1rem auto;
+}
+
+.mat-toolbar
+{
+position:fixed;bottom:0px;
+}
+
+/*.footer{
+  flex-shrink: 0;
+  flex-grow: 0;
+  background: #eee;
+  padding: 3px 15px;
+}*/

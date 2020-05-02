@@ -1,0 +1,18 @@
+<mat-toolbar class="headerwidth">
+  <span><a>FriendFunds</a></span>
+ <span class="spacer"></span>
+  <ul>
+    <li>
+      <a routerLink="/about" mat-button>About FriendFunds</a>
+    </li>
+    <li>
+      <a routerLink="/login" mat-button>Login</a>
+    </li>
+    <li>
+      <a routerLink="/signup" mat-button>Sign Up</a>
+    </li>
+    <li>
+      <button mat-button (click)="onLogout()">Logout</button>
+    </li>
+  </ul>
+</mat-toolbar>
