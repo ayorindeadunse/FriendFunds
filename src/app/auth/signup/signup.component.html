@@ -3,74 +3,140 @@
 </mat-toolbar>
 <mat-card>
   <mat-spinner *ngIf="isLoading"></mat-spinner>
-  <form (submit) = "onSignUp(signupForm)" #signupForm="ngForm" *ngIf="!isLoading">
+  <form (submit)="onSignUp(signupForm)" #signupForm="ngForm" *ngIf="!isLoading">
     <mat-form-field>
       <input
-      matInput name="firstname" ngModel
-      type = "text"
-      placeholder="firstname" #firstnameInput="ngModel" required firstname>
-      <mat-error *ngIf="firstnameInput.invalid">Please enter your first name.</mat-error>
+        matInput
+        name="firstname"
+        ngModel
+        type="text"
+        placeholder="firstname"
+        #firstnameInput="ngModel"
+        required
+        firstname
+      />
+      <mat-error *ngIf="firstnameInput.invalid"
+        >Please enter your first name.</mat-error
+      >
     </mat-form-field>
     <mat-form-field>
       <input
-      matInput name="lastname" ngModel
-      type = "text"
-      placeholder="lastname" #lastnameInput="ngModel" required lastname>
-      <mat-error *ngIf="lastnameInput.invalid">Please enter your last name.</mat-error>
+        matInput
+        name="lastname"
+        ngModel
+        type="text"
+        placeholder="lastname"
+        #lastnameInput="ngModel"
+        required
+        lastname
+      />
+      <mat-error *ngIf="lastnameInput.invalid"
+        >Please enter your last name.</mat-error
+      >
     </mat-form-field>
     <mat-form-field>
       <input
-      matInput name="address" ngModel
-      type = "text"
-      placeholder="address" #addressInput="ngModel" address>
-      <mat-error *ngIf="lastnameInput.invalid">Please enter your address.</mat-error>
+        matInput
+        name="address"
+        ngModel
+        type="text"
+        placeholder="address"
+        #addressInput="ngModel"
+        address
+      />
+      <mat-error *ngIf="lastnameInput.invalid"
+        >Please enter your address.</mat-error
+      >
     </mat-form-field>
     <mat-form-field>
       <input
-      matInput name="state" ngModel
-      type = "text"
-      placeholder="state" #stateInput="ngModel" state>
-      <mat-error *ngIf="stateInput.invalid">Please enter your state.</mat-error>
+        matInput
+        name="location"
+        ngModel
+        type="text"
+        placeholder="location"
+        #locationInput="ngModel"
+        location
+      />
+      <mat-error *ngIf="locationInput.invalid">Location is required.</mat-error>
     </mat-form-field>
-  <mat-form-field>
-    <input
-    matInput name="email" ngModel
-    type = "email"
-    placeholder="E-Mail" #emailInput="ngModel" required email>
-    <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
-  </mat-form-field>
-<mat-form-field>
-<input matInput name = "password" type = "password"  placeholder="password" ngModel  #passwordInput= "ngModel" required password>
-<mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
-</mat-form-field>
-<section class="userGender">
-  <p>
-  <mat-label>Gender:</mat-label>
-  </p>
-  <mat-radio-group name="gender" ngModel #genderInput="ngModel" required gender>
-    <mat-radio-button value="after">Male</mat-radio-button>
-    <mat-radio-button value="before">Female</mat-radio-button>
-    <mat-radio-button value="after">Other</mat-radio-button>
-    <!--<mat-error *ngIf="genderInput.invalid">Please select a valid gender from the options provided.</mat-error>-->
-  </mat-radio-group>
-
-</section>
-<mat-form-field>
-  <input
-  matInput name="mobile" ngModel
-  type = "text"
-  placeholder="mobile" #mobileInput="ngModel" required mobile>
-  <mat-error *ngIf="mobileInput.invalid">Please enter your phone number.</mat-error>
-</mat-form-field>
-<mat-form-field>
-  <mat-label>Date of Birth</mat-label>
-<input matInput [matDatepicker]="picker" placeholder="Choose a date">
-<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-<mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
-<button
-mat-raised-button color="accent"
-type = "submit" *ngIf="!isLoading">Signup</button>
-<!--<mat-card></mat-card>-->
+    <mat-form-field>
+      <input
+        matInput
+        name="email"
+        ngModel
+        type="email"
+        placeholder="E-Mail"
+        #emailInput="ngModel"
+        required
+        email
+      />
+      <mat-error *ngIf="emailInput.invalid"
+        >Please enter a valid email.</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        name="password"
+        type="password"
+        placeholder="password"
+        ngModel
+        #passwordInput="ngModel"
+        required
+        password
+      />
+      <mat-error *ngIf="passwordInput.invalid"
+        >Please enter a valid password.</mat-error
+      >
+    </mat-form-field>
+    <section class="userGender">
+      <p>
+        <mat-label>Gender:</mat-label>
+      </p>
+      <mat-radio-group
+        name="gender"
+        ngModel
+        #genderInput="ngModel"
+        required
+        gender
+      >
+        <mat-radio-button value="Male">Male</mat-radio-button>
+        <mat-radio-button value="Female">Female</mat-radio-button>
+        <mat-radio-button value="Other">Other</mat-radio-button>
+        <!--<mat-error *ngIf="genderInput.invalid">Please select a valid gender from the options provided.</mat-error>-->
+      </mat-radio-group>
+    </section>
+    <mat-form-field>
+      <input
+        matInput
+        name="mobile"
+        ngModel
+        type="text"
+        placeholder="mobile"
+        #mobileInput="ngModel"
+        required
+        mobile
+      />
+      <mat-error *ngIf="mobileInput.invalid"
+        >Please enter your phone number.</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Date of Birth</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        placeholder="Choose a date"
+        name="dateOfBirth"
+        ngModel
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit" *ngIf="!isLoading">
+      Signup
+    </button>
+    <!--<mat-card></mat-card>-->
   </form>
 </mat-card>

@@ -1,15 +1,13 @@
-export interface SignupData {
-  id: string,
+export interface UserData {
   firstname: string;
   lastname: string;
   address: string;
-  state: string;
+  location: string;
   email: string;
   password: string;
   gender: string;
-  mobile: number
+  mobile: Number;
   dateOfBirth: Date;
   imagePath: string;
-  creator: string;
-  dateRegistered:string;
-  }
+  dateRegistered: Date;
+}

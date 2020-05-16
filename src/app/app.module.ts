@@ -22,6 +22,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FooterComponent } from './footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { FooterComponent } from './footer/footer.component';
     MatToolbarModule,
     MatCardModule,MatInputModule,MatButtonModule,
     MatExpansionModule,MatPaginatorModule,MatProgressSpinnerModule,MatDialogModule,MatMenuModule,MatIconModule,
-    FormsModule,ReactiveFormsModule,MatRadioModule,MatDatepickerModule,MatNativeDateModule
+    FormsModule,ReactiveFormsModule,MatRadioModule,MatDatepickerModule,MatNativeDateModule,
+    HttpClientModule
   ],
   providers: [ MatDatepickerModule,
     MatNativeDateModule ],

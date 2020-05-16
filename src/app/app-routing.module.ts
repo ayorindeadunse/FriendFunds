@@ -6,13 +6,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: 'signup', component: SignupComponent},
+  {path: 'signup', component: SignupComponent},
   {path: 'login', component: LoginComponent},
   {path: 'about', component: AboutComponent}
 
 ];
 
 @NgModule({
+  //takes the root/route config so the routes can be defined here
+  //and make angular aware of the routes
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
