@@ -80,12 +80,12 @@ export class UsersService {
   }
 
   //login
-  /*login(email: string, password: string) {
+  login(email: string, password: string) {
     const authData: AuthData = { email: email, password: password };
     //call restful api with login route
     this.http
       .post<{ token: string; expiresIn: number }>(
-        "http://localhost:3005/api/login",
+        "http://localhost:3005/api/user/login",
         authData
       )
       .subscribe((response) => {
@@ -104,7 +104,7 @@ export class UsersService {
           this.router.navigate(["/"]);
         }
       });
-  }*/
+  }
 
   //autoAuthUser
 

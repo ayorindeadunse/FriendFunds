@@ -60,5 +60,4 @@ app.use((req, res, next) => {
 //delete
 
 app.use("/api/user", signupRoutes);
-
 module.exports = app;

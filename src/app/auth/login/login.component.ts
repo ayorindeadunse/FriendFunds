@@ -1,34 +1,22 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component } from "@angular/core";
+import { NgForm } from "@angular/forms";
+import { UsersService } from "./../users.service";
 
 @Component({
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.css"],
 })
 export class LoginComponent {
+  isLoading = false;
+  //private authStatusSub: Subscription;
 
-isLoading = false;
-//private authStatusSub: Subscription;
+  constructor(public userService: UsersService) {}
 
-/*constructor()
-{
+  ngOnInit() {}
+  ngOnDestroy() {}
 
-}*/
-
-ngOnInit()
-{
-
+  onLogin(form: NgForm) {
+    this.isLoading = true;
+    this.userService.login(form.value.email, form.value.password);
+  }
 }
-ngOnDestroy()
-{
-
-}
-
-onLogin(form: NgForm)
-{
-  //this.isLoading = true;
-  //this.authService.login(form.value.email, form.value.password);
-}
-}
-
-

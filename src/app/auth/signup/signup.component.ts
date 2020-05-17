@@ -41,5 +41,6 @@ export class SignupComponent implements OnInit, OnDestroy {
       this.imagePath,
       this.dateRegistered
     );
+    form.resetForm();
   }
 }
