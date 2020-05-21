@@ -1,5 +1,6 @@
 //express app
 
+const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 
@@ -14,6 +15,9 @@ const app = express();
 mongoose
   .connect(
     "mongodb+srv://ayorinde:aKYdsnocRG28VZdT@cluster0-x9wzf.mongodb.net/friendfunds?retryWrites=true&w=majority",
+    //  "mongodb+srv://ayorinde:" +
+    // process.env.MONGO_ATLAS_PW +
+    //   "@cluster0-x9wzf.mongodb.net/friendfunds?retryWrites=true&w=majority"
     { useNewUrlParser: true }
   )
   .then(() => {

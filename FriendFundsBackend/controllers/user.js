@@ -1,12 +1,10 @@
-const express = require("express");
-const UserController = require("../controllers/user");
-const router = express.Router();
-router.post("/signup", UserController.addUser);
-router.post("/login", UserController.userLogin);
-module.exports = router;
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
-//Create a new user after signup
-/*router.post("/signup", (req, res, next) => {
+const User = require("../models/user");
+
+//creating a new user
+exports.addUser = (req, res, next) => {
   bcrypt.hash(req.body.password, 10).then((hash) => {
     const user = new User({
       firstname: req.body.firstname,
@@ -28,30 +26,26 @@ module.exports = router;
       .save()
       .then((result) => {
         res.status(201).json({
-          message:
-            "You have successfully been created. Please check your e-mail to confirm.",
-          //possibly return the id, (check best practices for e-mail confirmation of registration online)
-          //userID: createdUser._id,
-          //send back the password to the user (best practices for plain text or otherwise)
+          message: "User created successfully!",
           result: result,
         });
       })
       .catch((err) => {
         res.status(500).json({
-          error: err,
+          message: "Invalid authentication credentials!",
         });
       });
   });
-});
+};
 
-//authentication
-router.post("/login", (req, res, next) => {
+//user login
+exports.userLogin = (req, res, next) => {
   let fetchedUser;
   User.findOne({ email: req.body.email })
     .then((user) => {
       if (!user) {
         return res.status(401).json({
-          message: "Authentication Failed!",
+          message: "Auth failed",
         });
       }
       fetchedUser = user;
@@ -60,27 +54,23 @@ router.post("/login", (req, res, next) => {
     .then((result) => {
       if (!result) {
         return res.status(401).json({
-          message: "Authentication Failed!",
+          message: "Auth failed",
         });
       }
       const token = jwt.sign(
-        {
-          email: fetchedUser.email,
-          userId: fetchedUser._id,
-        },
-        "secret_this_should_be_longer",
-        {
-          expiresIn: "1h",
-        }
+        { email: fetchedUser.email, userId: fetchedUser._id },
+        process.env.JWT_KEY,
+        { expiresIn: "1h" }
       );
       res.status(200).json({
         token: token,
         expiresIn: 3600,
+        userId: fetchedUser._id,
       });
     })
     .catch((err) => {
       return res.status(401).json({
-        message: "Authentication Failed!",
+        message: "Invalid authentication credentials!",
       });
     });
-});*/
+};

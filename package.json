@@ -28,6 +28,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.7",
     "mongoose": "^5.9.12",
+    "mongoose-unique-validator": "^2.0.3",
+    "path": "^0.12.7",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

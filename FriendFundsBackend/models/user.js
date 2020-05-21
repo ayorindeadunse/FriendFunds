@@ -1,7 +1,10 @@
 //mongoose schema
 
 const mongoose = require("mongoose");
-const postSchema = mongoose.Schema({
+//use a unique validator for e-mails
+const uniqueValidator = require("mongoose-unique-validator");
+
+const userSchema = mongoose.Schema({
   firstname: { type: String, required: true },
   lastname: { type: String, required: true },
   address: { type: String, required: true },
@@ -15,4 +18,5 @@ const postSchema = mongoose.Schema({
   dateRegistered: { type: Date, required: true },
 });
 
-module.exports = mongoose.model("User", postSchema);
+userSchema.plugin(uniqueValidator);
+module.exports = mongoose.model("User", userSchema);

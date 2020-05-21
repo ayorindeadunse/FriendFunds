@@ -112,14 +112,14 @@
         matInput
         name="mobile"
         ngModel
-        type="text"
+        type="number"
         placeholder="mobile"
         #mobileInput="ngModel"
         required
         mobile
       />
       <mat-error *ngIf="mobileInput.invalid"
-        >Please enter your phone number.</mat-error
+        >Please enter a valid phone number.</mat-error
       >
     </mat-form-field>
     <mat-form-field>

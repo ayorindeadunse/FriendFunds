@@ -85,7 +85,7 @@ export class UsersService {
     //call restful api with login route
     this.http
       .post<{ token: string; expiresIn: number }>(
-        "http://localhost:3005/api/user/login",
+        "http://localhost:3002/api/user/login",
         authData
       )
       .subscribe((response) => {
