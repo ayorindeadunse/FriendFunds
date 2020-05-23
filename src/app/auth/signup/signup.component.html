@@ -79,13 +79,16 @@
       <input
         matInput
         name="password"
-        type="password"
+        #passwordInput="ngModel"
+        [type]="hide ? 'password' : 'text'"
         placeholder="password"
         ngModel
-        #passwordInput="ngModel"
         required
         password
       />
+      <mat-icon matSuffix (click)="hide = !hide">{{
+        hide ? "visibility_off" : "visibility"
+      }}</mat-icon>
       <mat-error *ngIf="passwordInput.invalid"
         >Please enter a valid password.</mat-error
       >

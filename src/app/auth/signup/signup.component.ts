@@ -13,6 +13,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   private authStatusSub: Subscription;
   private imagePath: string;
   private dateRegistered: Date;
+  hide = false;
 
   constructor(public userService: UsersService) {}
 
