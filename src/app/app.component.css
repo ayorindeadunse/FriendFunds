@@ -3,9 +3,9 @@ main {
   margin: 1rem auto;
 }
 
-.mat-toolbar
-{
-position:fixed;bottom:0px;
+.mat-toolbar {
+  position: fixed;
+  bottom: 0px;
 }
 
 /*.footer{
