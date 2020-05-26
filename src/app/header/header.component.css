@@ -1,26 +1,24 @@
-ul{
+ul {
   list-style: none;
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
 }
 
-a
-{
+a {
   text-decoration: none;
   color: white;
 }
 
 .spacer {
-  flex: auto;
+  flex: 1 1 auto;
 }
 
-ul{
+ul {
   display: flex;
 }
 
-.headerwidth
-{
+.headerwidth {
   background-color: darkslateblue;
-  width:100%;
-  color:white;
+  width: 100%;
+  color: white;
 }

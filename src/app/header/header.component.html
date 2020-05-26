@@ -1,17 +1,19 @@
 <mat-toolbar class="headerwidth">
-  <span><a>FriendFunds</a></span>
- <span class="spacer"></span>
+  <span><a routerLink="/">FriendFunds</a></span>
+  <span class="spacer"></span>
   <ul>
-    <li>
-      <a routerLink="/about" mat-button>About FriendFunds</a>
+    <!--<li *ngIf="userIsAuthenticated">-->
+    <a routerLink="/about" mat-button>About FriendFunds</a>
+    <!--</li>-->
+    <li *ngIf="!userIsAuthenticated">
+      <a mat-button routerLink="/login" routerLinkActive="mat-accent">Login</a>
     </li>
-    <li>
-      <a routerLink="/login" mat-button>Login</a>
+    <li *ngIf="!userIsAuthenticated">
+      <a mat-button routerLink="/signup" routerLinkActive="mat-accent"
+        >Sign Up</a
+      >
     </li>
-    <li>
-      <a routerLink="/signup" mat-button>Sign Up</a>
-    </li>
-    <li>
+    <li *ngIf="userIsAuthenticated">
       <button mat-button (click)="onLogout()">Logout</button>
     </li>
   </ul>

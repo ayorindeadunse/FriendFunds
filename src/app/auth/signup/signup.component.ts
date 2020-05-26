@@ -17,9 +17,17 @@ export class SignupComponent implements OnInit, OnDestroy {
 
   constructor(public userService: UsersService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.authStatusSub = this.userService
+      .getAuthStatusListener()
+      .subscribe((authStatus) => {
+        this.isLoading = false;
+      });
+  }
 
-  ngOnDestroy() {}
+  ngOnDestroy() {
+    this.authStatusSub.unsubscribe();
+  }
 
   onSignUp(form: NgForm) {
     if (form.invalid) {

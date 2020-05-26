@@ -68,7 +68,7 @@ export class UsersService {
       imagePath: null,
       dateRegistered: dateRegistered,
     };
-
+    //remember to update the users.service.ts file to include the environment variable for the global url
     this.http
       .post<{ message: string; userID: string }>(
         "http://localhost:3002/api/user/signup",
@@ -129,7 +129,7 @@ export class UsersService {
     this.authStatusListener.next(false);
     clearTimeout(this.tokenTimer);
     this.clearAuthData();
-    this.router.navigate(["/"]);
+    this.router.navigate(["/login"]);
   }
   //set Authentification timer
   private setAuthTimer(duration: number) {
