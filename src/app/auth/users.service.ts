@@ -10,6 +10,7 @@ export class UsersService {
   private isAuthenticated = false;
   private token: string;
   private tokenTimer: any;
+  //userId variable
   private authStatusListener = new Subject<boolean>();
   //variable that keeps track of new users added to the platform
   //it's a subject of type User in the user model
@@ -24,6 +25,11 @@ export class UsersService {
   getIsAuth() {
     return this.isAuthenticated;
   }
+
+  //getUserId()
+  //{
+  // return this.userId;
+  //}
 
   getAuthStatusListener() {
     return this.authStatusListener.asObservable();
@@ -127,6 +133,7 @@ export class UsersService {
     this.token = null;
     this.isAuthenticated = false;
     this.authStatusListener.next(false);
+    //initialize userId to null
     clearTimeout(this.tokenTimer);
     this.clearAuthData();
     this.router.navigate(["/login"]);
@@ -134,17 +141,21 @@ export class UsersService {
   //set Authentification timer
   private setAuthTimer(duration: number) {
     console.log("Setting Timer: " + duration);
-    this.tokenTimer = setTimeout(() => {});
+    this.tokenTimer = setTimeout(() => {
+      this.logout();
+    }, duration * 1000);
   }
   //save authentication data
   saveAuthData(token: string, expirationDate: Date) {
     localStorage.setItem("token", token);
     localStorage.setItem("expiration", expirationDate.toISOString());
+    //include userId
   }
   //Clear authentification data
   private clearAuthData() {
     localStorage.removeItem("token");
     localStorage.removeItem("expiration");
+    //remove userId as well
   }
   //Get authentification data
   private getAuthData() {
@@ -156,6 +167,7 @@ export class UsersService {
     return {
       token: token,
       expirationDate: new Date(expirationDate),
+      //include userId
     };
   }
 }

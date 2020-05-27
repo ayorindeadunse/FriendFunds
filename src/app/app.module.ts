@@ -1,3 +1,5 @@
+import { ErrorComponent } from "./error/error.component";
+import { ErrorInterceptor } from "./error-interceptor";
 import { AuthModule } from "./auth/auth.module";
 import { AuthInterceptor } from "./auth/auth-interceptor";
 import { AngularMaterialModule } from "./angular-material.module";
@@ -18,6 +20,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
     HeaderComponent,
     AboutComponent,
     FooterComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,8 +33,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
 
   bootstrap: [AppComponent],
+  entryComponents: [ErrorComponent],
 })
 export class AppModule {}
