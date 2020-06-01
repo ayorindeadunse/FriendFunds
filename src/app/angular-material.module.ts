@@ -12,6 +12,8 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatRadioModule } from "@angular/material/radio";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatListModule } from "@angular/material/list";
 
 @NgModule({
   exports: [
@@ -28,6 +30,8 @@ import { MatNativeDateModule } from "@angular/material/core";
     MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSidenavModule,
+    MatListModule,
   ],
 })
 export class AngularMaterialModule {}

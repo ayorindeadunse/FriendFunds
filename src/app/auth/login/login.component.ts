@@ -10,6 +10,7 @@ import { UsersService } from "./../users.service";
 export class LoginComponent implements OnInit, OnDestroy {
   isLoading = false;
   private authStatusSub: Subscription;
+  hide = false;
 
   constructor(public userService: UsersService) {}
 
