@@ -15,7 +15,7 @@ const userSchema = mongoose.Schema({
   mobile: { type: Number, required: true },
   dateOfBirth: { type: Date, required: true },
   imagePath: { type: String, required: false },
-  dateRegistered: { type: Date, required: true },
+  dateRegistered: { type: Date, required: false },
 });
 
 userSchema.plugin(uniqueValidator);

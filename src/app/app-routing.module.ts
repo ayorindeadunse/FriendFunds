@@ -1,3 +1,4 @@
+import { FriendsComponent } from "./friends/friends.component";
 import { AuthGuard } from "./auth/auth.guard";
 import { AboutComponent } from "./about/about.component";
 import { LoginComponent } from "./auth/login/login.component";
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: "signup", component: SignupComponent },
   { path: "login", component: LoginComponent },
   { path: "about", component: AboutComponent },
+  { path: "friends", component: FriendsComponent },
   { path: "auth", loadChildren: "./auth/auth.module#AuthModule" },
 ];
 

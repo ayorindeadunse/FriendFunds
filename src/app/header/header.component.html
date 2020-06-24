@@ -1,4 +1,7 @@
 <mat-toolbar class="headerwidth">
+  <!--<button mat-icon-button *ngIf="userIsAuthenticated">
+    <mat-icon>menu</mat-icon>
+  </button>-->
   <span><a routerLink="/">FriendFunds</a></span>
   <span class="spacer"></span>
   <ul>
@@ -20,3 +23,22 @@
     </li>
   </ul>
 </mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="'/friends'" (click)="sidenav.toggle()">
+        Friends List
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 88vh;">
+      <mat-toolbar class="headerwidth">
+        <button mat-icon-button aria-label="Menu" (click)="sidenav.open()">
+          <mat-icon *ngIf="userIsAuthenticated">menu</mat-icon>
+        </button>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

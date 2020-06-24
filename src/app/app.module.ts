@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { AboutComponent } from "./about/about.component";
 import { FooterComponent } from "./footer/footer.component";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { FriendsComponent } from './friends/friends.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
     AboutComponent,
     FooterComponent,
     ErrorComponent,
+    FriendsComponent,
   ],
   imports: [
     BrowserModule,
