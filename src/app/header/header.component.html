@@ -2,6 +2,10 @@
   <!--<button mat-icon-button *ngIf="userIsAuthenticated">
     <mat-icon>menu</mat-icon>
   </button>-->
+  <button mat-icon-button aria-label="Menu" (click)="sidenav.open()">
+    <mat-icon *ngIf="userIsAuthenticated">menu</mat-icon>
+  </button>
+  <router-outlet></router-outlet>
   <span><a routerLink="/">FriendFunds</a></span>
   <span class="spacer"></span>
   <ul>
@@ -33,11 +37,9 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <div style="height: 88vh;">
-      <mat-toolbar class="headerwidth">
-        <button mat-icon-button aria-label="Menu" (click)="sidenav.open()">
-          <mat-icon *ngIf="userIsAuthenticated">menu</mat-icon>
-        </button>
-      </mat-toolbar>
+      <!--  <button mat-icon-button aria-label="Menu" (click)="sidenav.open()">
+        <mat-icon *ngIf="userIsAuthenticated">menu</mat-icon>
+      </button>-->
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
